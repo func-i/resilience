@@ -14,3 +14,17 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+
+# scm revert files
+**.orig
+
+# Sublime project files
+*.sublime*
+
+# vim artifacts
+**.swp
+
+# Ignoring RVM
+.ruby-version
+.ruby-gemset
