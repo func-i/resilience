@@ -21,13 +21,13 @@ group :test do
   gem 'database_cleaner', '1.0.1'
   gem 'shoulda-matchers', require: false
   gem 'simplecov', require: false
-  gem 'capybara'
+  gem 'capybara', '~> 2.4.1'
 end
 
 gem 'rails_12factor', group: :production
 
 group :test, :development do
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-rails', '~> 3.0.1'
   gem 'factory_girl_rails'
   gem 'faker', require: false
 end
