@@ -10,7 +10,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'devise', '~> 3.2.4'
 gem 'slim'
-
+gem 'foundation-rails', '~> 5.3.0.1'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development do
@@ -28,6 +28,7 @@ end
 gem 'rails_12factor', group: :production
 
 group :test, :development do
+  gem 'quiet_assets'
   gem 'rspec-rails', '~> 3.0.1'
   gem 'factory_girl_rails'
   gem 'faker', require: false
