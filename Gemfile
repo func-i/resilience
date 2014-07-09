@@ -11,6 +11,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise', '~> 3.2.4'
 gem 'slim'
 gem 'foundation-rails', '~> 5.3.0.1'
+gem 'simple_form', '~> 3.1.0.rc2'
+
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development do
