@@ -1,0 +1,11 @@
+nav.top-bar[data-topbar]
+  ul.title-area
+    li.name
+      h3
+        = link_to 'Resilience Project', root_path
+    li.toggle-topbar.menu-icon
+      a[href="#"]
+        Menu
+  section.top-bar-section
+    ul
+      == render 'layouts/navigation_links'

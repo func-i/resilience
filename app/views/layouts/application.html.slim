@@ -2,15 +2,18 @@ doctype html
 html
   head
     title Resilience Project
-    meta name="keywords" content=""
-    meta name="author" content="author"
+
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    meta name="description" content="Description"
+    == stylesheet_link_tag "application", :media => 'all', 'data-turbolinks-track' => true
+    / Modernizr is required for Zurb Foundation
+    == javascript_include_tag 'vendor/modernizr'
+    == javascript_include_tag 'application', 'data-turbolinks-track' => true
+    == csrf_meta_tags
 
   body
-    h1 Resilience Project
-
-    #content
+    header
+      == render 'layouts/navigation'
+    main[role="main"]
+      == render 'layouts/messages'
       == yield
-
-    div id="footer"
-      | Copyright ©
-
