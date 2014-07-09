@@ -1,0 +1,13 @@
+.row
+  .panel.large-10.small-4.columns.small-centered.large-centered role="content"
+
+    = simple_form_for resource, as: :user, url: password_path(resource_name), html: { method: :post } do |f|
+      = f.error_notification
+      = devise_error_messages!
+
+      .row.collapse
+        h2 Forgot your password?
+      .row.collapse
+        = f.input :email, required: true
+      .row.collapse
+        = f.button :submit, 'Send me reset password instructions', class: 'small right'

@@ -1,3 +1,4 @@
 ul.right
-  li
-    a href="#" Sign In
+  - if current_user
+    li = link_to current_user.email, "#"
+  li = user_signed_in?
