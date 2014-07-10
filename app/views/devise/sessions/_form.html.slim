@@ -1,42 +1,41 @@
 .row
   .panel.large-4.small-4.columns.small-centered.large-centered role="content"
-      h2.title User Login Form
-      = simple_form_for resource,
-        as: resource_name,
-        url: session_path(resource_name),
-        class: :login_input do |f|
+    = simple_form_for resource,
+      as: resource_name,
+      url: session_path(resource_name),
+      class: :login_input do |f|
 
+      .row.collapse
+        .small-3.large-2.columns
+          span.prefix
+            i.fi-torso
+        = f.input :email,
+          label: false,
+          required: false,
+          autofocus: true,
+          placeholder: 'Email',
+          wrapper_html: { class: 'small-9 large-10 columns'}
+
+      .row.collapse
+        .small-3.large-2.columns
+          span.prefix
+            i.fi-lock
+        = f.input :password,
+          label: false,
+          required: false,
+          placeholder: 'Password',
+          wrapper_html: { class: 'small-9 large-10 columns'}
+
+      - if devise_mapping.rememberable?
+        = f.input :remember_me, label: false do
+          = f.check_box :remember_me
+          = f.label :remember_me
+
+
+      .row.collapse
+        = f.button :submit, 'Sign In', class: 'right'
+
+      - if devise_mapping.recoverable?
         .row.collapse
           .small-3.large-2.columns
-            span.prefix
-              i.fi-torso
-          = f.input :email,
-            label: false,
-            required: false,
-            autofocus: true,
-            placeholder: 'Email',
-            wrapper_html: { class: 'small-9 large-10 columns'}
-
-        .row.collapse
-          .small-3.large-2.columns
-            span.prefix
-              i.fi-lock
-          = f.input :password,
-            label: false,
-            required: false,
-            placeholder: 'Password',
-            wrapper_html: { class: 'small-9 large-10 columns'}
-
-        - if devise_mapping.rememberable?
-          = f.input :remember_me, label: false do
-            = f.check_box :remember_me
-            = f.label :remember_me
-
-
-        .row.collapse
-          = f.button :submit, 'Sign In', class: 'right'
-
-        - if devise_mapping.recoverable?
-          .row.collapse
-            .small-3.large-2.columns
-            = link_to "Forgot your password ?", new_user_password_path, class: 'right'
+          = link_to "Forgot your password ?", new_user_password_path, class: 'right'

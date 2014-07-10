@@ -45,21 +45,6 @@ SimpleForm.setup do |config|
     b.use :error, wrap_with: { tag: :small, class: 'error' }
   end
 
-  config.wrappers :login, class: :login_input, html_class: :field_with_hint, error_class: :field_with_errors do |b|
-    b.use :html5
-    b.use :placeholder
-    b.optional :maxlength
-    b.optional :pattern
-    b.optional :min_max
-    b.optional :readonly
-
-    ## Inputs
-    b.wrapper tag: :div, class: 'border' do |component|
-      component.use :input, error_html: { class: :error }
-    end
-    b.use :error, wrap_with: { tag: :small, class: 'error' }
-  end
-
   # The default wrapper to be used by the FormBuilder.
   config.default_wrapper = :default
 
