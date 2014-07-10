@@ -11,9 +11,11 @@ User.destroy_all
 User.create  name: 'Anton Yordnaov',
   email: 'anton.yordanov@droxic.com',
   password: 'password',
-  password_confirmation: 'password'
+  password_confirmation: 'password',
+  organization: 'Droxic'
 
 User.create name: 'Anton Yordnaov GMAIL',
   email: 'anton.yordanov@gmail.com',
   password: 'password',
-  password_confirmation: 'password'
+  password_confirmation: 'password',
+  organization: 'Droxic'
