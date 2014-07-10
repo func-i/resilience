@@ -1,5 +1,3 @@
-require 'factory_girl'
-require 'faker'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -8,10 +6,14 @@ require 'faker'
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-FactoryGirl.create :user,
-  email: 'anton.yordanov@droxic.com',
-  password: 'password'
+User.destroy_all
 
-FactoryGirl.create :user,
+User.create  name: 'Anton Yordnaov',
+  email: 'anton.yordanov@droxic.com',
+  password: 'password',
+  password_confirmation: 'password'
+
+User.create name: 'Anton Yordnaov GMAIL',
   email: 'anton.yordanov@gmail.com',
-  password: 'password'
+  password: 'password',
+  password_confirmation: 'password'
