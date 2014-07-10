@@ -58,7 +58,7 @@ RSpec.configure do |config|
   # end
 
   config.include Rails.application.routes.url_helpers, type: :feature
-  config.include Devise::TestHelpers, type: :controller
-  config.include Warden::Test::Helpers
+  config.include ActionView::Helpers::TranslationHelper, type: :feature
+  config.include Devise::TestHelpers, :type => :controller
   config.include Features::SessionHelpers
 end

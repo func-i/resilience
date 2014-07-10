@@ -33,9 +33,9 @@
 
 
       .row.collapse
-        = f.button :submit, 'Sign In', class: 'right'
+        = f.button :submit, t('navigation.sign_in'), class: 'right'
 
       - if devise_mapping.recoverable?
         .row.collapse
           .small-3.large-2.columns
-          = link_to "Forgot your password ?", new_user_password_path, class: 'right'
+          = link_to t('devise.passwords.forgoted_password'), new_user_password_path, class: 'right'

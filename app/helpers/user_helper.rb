@@ -11,11 +11,11 @@ module UserHelper
     devise_mapping.to
   end
 
-  def user_signed_in?
-    if current_user.blank?
-      link_to "Sign In", new_user_session_path
+  def show_sign_in_out
+    if !user_signed_in?
+      link_to t('navigation.sign_in'), new_user_session_path
     else
-      link_to "Sign Out", destroy_user_session_path, method: :delete
+      link_to t('navigation.sign_out'), destroy_user_session_path, method: :delete
     end
   end
 end

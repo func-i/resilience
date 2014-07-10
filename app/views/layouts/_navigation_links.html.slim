@@ -1,7 +1,7 @@
 ul.right
-  - if current_user
+  - if user_signed_in?
     li.has-dropdown
       a href="#" #{current_user.email}
       ul.dropdown
         li= link_to t('navigation.profile'), edit_user_profile_path(current_user)
-  li= user_signed_in?
+  li= show_sign_in_out
