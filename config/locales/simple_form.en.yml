@@ -10,6 +10,11 @@ en:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
+    legends:
+      user_profile:
+        basic_data: Basic Data
+        credentials: Credentials
+        additional_data: Additional Data
     # Examples
     # labels:
     #   defaults:

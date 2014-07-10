@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   # resources :home, only: [:index]
 
+  resources :user_profiles, only: [:edit, :update]
+
   root to: 'home#index'
 end

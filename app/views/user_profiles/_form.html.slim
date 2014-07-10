@@ -1,0 +1,25 @@
+.row
+  h3= t('views.user_profiles.edit.page_title')
+  .panel.large-10.small-4.columns.small-centered.large-centered role="content"
+    = simple_form_for user, url: user_profile_path(user), wrapper: :foundation do |form|
+      = form.error_notification
+
+      fieldset
+        legend= t('simple_form.legends.user_profile.basic_data')
+        = form.input :name
+        = form.input :email
+        = form.input :title
+        = form.input :organization
+
+      fieldset
+        legend= t('simple_form.legends.user_profile.credentials')
+        = form.input :password
+        = form.input :password_confirmation
+
+      fieldset
+        legend= t('simple_form.legends.user_profile.additional_data')
+        = form.input :phone
+        = form.input :website
+
+      .row.collapse
+        = form.button :submit, class: 'right'
