@@ -26,6 +26,7 @@ group :test do
   gem 'shoulda-matchers', require: false
   gem 'simplecov', require: false
   gem 'capybara', '~> 2.4.1'
+  gem 'email_spec'
 end
 
 gem 'rails_12factor', group: :production

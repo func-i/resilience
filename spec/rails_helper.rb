@@ -8,6 +8,7 @@ require 'simplecov'
 require 'shoulda/matchers'
 require 'faker'
 require 'capybara/rails'
+require 'email_spec'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -61,4 +62,6 @@ RSpec.configure do |config|
   config.include ActionView::Helpers::TranslationHelper, type: :feature
   config.include Devise::TestHelpers, :type => :controller
   config.include Features::SessionHelpers
+  config.include(EmailSpec::Helpers)
+  config.include(EmailSpec::Matchers)
 end
