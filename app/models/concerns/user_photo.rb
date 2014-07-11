@@ -11,7 +11,7 @@ module UserPhoto
   included do
     dragonfly_accessor :photo
     validates_property :format, of: :photo, in: ['jpeg', 'png', 'gif']
-    validates_property :width, of: :photo, in: (0..400), message: ""
+    validates_property :width, of: :photo, in: (0..20000), message: ""
   end
 
   def thumb size = SIZE[:normal]
