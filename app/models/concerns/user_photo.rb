@@ -5,7 +5,7 @@ module UserPhoto
     large:   '1024x1024>',
     normal:  '400x400>',
     small:   '100x100>',
-    avatar:  '40x40'
+    avatar:  '30x30#'
   }
 
   included do

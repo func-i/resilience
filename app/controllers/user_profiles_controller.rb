@@ -38,6 +38,9 @@ class UserProfilesController < ApplicationController
         :title,
         :organization,
         :phone,
-        :website)
+        :website,
+        :photo,
+        :remove_photo,
+        :retained_photo)
   end
 end

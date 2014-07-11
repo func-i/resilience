@@ -1,7 +1,12 @@
 ul.right
   - if user_signed_in?
+    - if current_user.photo_stored?
+      li = image_tag current_user.photo.thumb(UserPhoto::SIZE[:avatar]).url,
+        class: 'user_avatar'
     li.has-dropdown
       a href="#" #{current_user.email}
       ul.dropdown
-        li= link_to t('navigation.profile'), edit_user_profile_path(current_user)
+        li= link_to t('navigation.profile'),
+          edit_user_profile_path(current_user)
+
   li= show_sign_in_out

@@ -13,10 +13,15 @@ en:
     buttons:
       passwords:
         change: Change my password
+      user_profiles:
+        edit:
+          submit: Update
     labels:
       passwords:
         new_password: New password
         password_confirmation: Confirm new password
+      user_profile:
+        remove_photo: Remove Photo
     legends:
       user_profile:
         basic_data: Basic Data
