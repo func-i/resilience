@@ -28,3 +28,9 @@ en:
       edit:
         page_title: Update Your Profile
         meta_title: Edit User Profile
+    users:
+      password:
+        new:
+          page_title: Forgot your password?
+        edit:
+          page_title: Change your password
