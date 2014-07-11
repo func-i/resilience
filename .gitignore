@@ -15,6 +15,9 @@
 /log/*.log
 /tmp
 
+# Ignore system folder
+/public/system/
+
 
 # scm revert files
 **.orig

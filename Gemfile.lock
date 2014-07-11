@@ -54,6 +54,9 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    dragonfly (1.0.5)
+      multi_json (~> 1.0)
+      rack
     email_spec (1.6.0)
       launchy (~> 2.1)
       mail (~> 2.2)
@@ -203,6 +206,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   database_cleaner (= 1.0.1)
   devise (~> 3.2.4)
+  dragonfly (~> 1.0.5)
   email_spec
   factory_girl_rails
   faker
