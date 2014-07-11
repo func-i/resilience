@@ -12,8 +12,6 @@
 // Allows the use of rem-calc() or lower-bound() in your settings
 @import "foundation/functions";
 
-@import "foundation";
-
 // override for the 'Home' navigation link
 .top-bar .name {
   font-size: rem-calc(13);
