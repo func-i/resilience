@@ -21,9 +21,15 @@ en:
     user_profiles:
       update:
         notice: Profile was updated successfully
+    registration_invitations:
+      create:
+        notice: "Invitation was successfully sent to %{email}"
   validators:
     email:
       invalid: 'Invalid email address'
+    registration_invitation:
+      email:
+        persist: "User with that email already exists"
   views:
     user_profiles:
       edit:
@@ -35,3 +41,6 @@ en:
           page_title: Forgot your password?
         edit:
           page_title: Change your password
+      registrations:
+        new:
+          page_title: Sign up

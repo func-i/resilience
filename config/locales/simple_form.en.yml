@@ -16,6 +16,13 @@ en:
       user_profiles:
         edit:
           submit: Update
+      registration_invitations:
+        new:
+          submit: Invite a friend
+      users:
+        registrations:
+          new:
+            submit: Sign up
     labels:
       passwords:
         new_password: New password

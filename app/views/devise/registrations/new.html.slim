@@ -1,17 +1,20 @@
 .row
-  h3= t('views.user_profiles.edit.page_title')
   .panel.large-10.small-6.columns.small-centered.large-centered role="content"
-    = simple_form_for user,
-      url: user_profile_path(user),
+    h3= t('views.users.registrations.new.page_title')
+    = simple_form_for resource,
+      url: user_registration_path,
       html: {multipart: true , class: 'user_profile'} do |form|
 
       = form.error_notification
 
+      = hidden_field_tag :invitation_token, params[:invitation_token]
+
       fieldset
         legend= t('simple_form.legends.user_profile.basic_data')
         = form.input :name
-        = form.input :email, required: true, input_html: {value: }
-        = form.input :title
+        = form.input :email,
+          required: true,
+          input_html: {value: @invitation.recipient_email}
         = form.input :organization
 
       fieldset
@@ -24,16 +27,7 @@
         = form.input :phone
         = form.input :website
 
-        -if user.photo_stored?
-          = image_tag user.photo.thumb(UserPhoto::SIZE[:small]).url,
-            class: 'user_profile_photo'
-          = form.input :remove_photo, as: :boolean,
-            label: t('simple_form.labels.user_profile.remove_photo')
-
-        = form.input :photo, as: :file
-        = form.input :retained_photo, as: :hidden
-
       .row.collapse
         = form.button :submit,
-          t('simple_form.buttons.user_profiles.edit.submit'),
+          t('simple_form.buttons.users.registrations.new.submit'),
           class: 'right'

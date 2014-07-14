@@ -7,17 +7,27 @@ RSpec.describe User, :type => :model do
     end
   end
 
+  context "assocaitions" do
+    it "have many registration invitations as inviter" do
+      is_expected.to have_many(:registration_invitations)
+    end
+
+    it "have one registration invitation as recipient" do
+      is_expected.to have_one(:registration_invitation)
+    end
+  end
+
   context "validations" do
     it " validate presence of email" do
-      expect validate_presence_of :email
+      is_expected.to validate_presence_of :email
     end
 
     it " validate presence of name" do
-      expect validate_presence_of :name
+      is_expected.to validate_presence_of :name
     end
 
     it " validate presence of organization" do
-      expect validate_presence_of :organization
+      is_expected.to validate_presence_of :organization
     end
   end
 
