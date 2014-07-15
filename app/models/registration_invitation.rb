@@ -3,14 +3,18 @@ class RegistrationInvitation < ActiveRecord::Base
 
   before_create :invitation_token!
 
-  belongs_to :sender, class_name: User
-  belongs_to :recipient, class_name: User
+  belongs_to :sender, class_name: 'User'
+  belongs_to :recipient, class_name: 'User'
 
   validates :recipient_email, presence: true, email: true
   validate :recipient_persistence
 
+  def accepted?
+    recipient_email.present? && recipient_id.present?
+  end
+
   def expired?
-    Time.now > created_at + EXPIRE_PERIOD
+    Time.now >= created_at + EXPIRE_PERIOD
   end
 
   private
