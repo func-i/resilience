@@ -30,12 +30,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def validate_invitation
     if invitation.blank?
-      redirect_to root_path, notice: "Invitation not exists" and return
+      redirect_to root_path, alert: t('controllers.registrations.validate_invitation.not_found') and return
     else
-      redirect_to root_path, notice: "Invitation link was expired" and return \
+      redirect_to root_path, alert: t('controllers.registrations.validate_invitation.expired') and return \
         if invitation.expired?
 
-      redirect_to root_path, notice: "Invitation was allredy accepted" and return \
+      redirect_to root_path, alert: t('controllers.registrations.validate_invitation.accepted') and return \
         if invitation.accepted?
     end
   end

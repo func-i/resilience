@@ -24,6 +24,12 @@ en:
     registration_invitations:
       create:
         notice: "Invitation was successfully sent to %{email}"
+    registrations:
+      validate_invitation:
+        not_found: Invitation was not found
+        expired: Invitation link is expired
+        accepted: Invitation is already accepted
+
   validators:
     email:
       invalid: 'Invalid email address'
