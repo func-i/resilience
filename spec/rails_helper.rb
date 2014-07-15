@@ -65,4 +65,5 @@ RSpec.configure do |config|
   config.include Features::SessionHelpers
   config.include(EmailSpec::Helpers)
   config.include(EmailSpec::Matchers)
+  config.include ActiveSupport::Testing::TimeHelpers
 end

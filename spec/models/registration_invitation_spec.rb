@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.describe RegistrationInvitation, :type => :model do
   context "associations" do
-    subject { RegistrationInvitation }
-
     it "belongs_to sender" do
       is_expected.to belong_to(:sender).class_name(User)
     end
@@ -14,8 +12,6 @@ RSpec.describe RegistrationInvitation, :type => :model do
   end
 
   context "validations" do
-    subject { RegistrationInvitation }
-
     context "email address" do
       let(:invalid_email) { "@example.com"}
       let(:invitation) { FactoryGirl.build :registration_invitation }
@@ -41,5 +37,26 @@ RSpec.describe RegistrationInvitation, :type => :model do
         expect{ subject.save }.to change(subject, :invitation_token)
       end
     end
+  end
+
+  describe "#expired?" do
+    subject {FactoryGirl.create :registration_invitation}
+
+    context "not expired" do
+      it "is not expired" do
+        expect(subject.expired?).to_not eq true
+      end
+    end
+
+    context "expired" do
+      subject {FactoryGirl.create :registration_invitation}
+
+      it "is expired" do
+        travel_to(subject.created_at + RegistrationInvitation::EXPIRE_PERIOD) do
+          expect(subject.expired?).to eq true
+        end
+      end
+    end
+
   end
 end
