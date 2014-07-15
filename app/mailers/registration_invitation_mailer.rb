@@ -6,6 +6,6 @@ class RegistrationInvitationMailer < ActionMailer::Base
     @sender = @registration_invitation.sender
     @recipient_email = @registration_invitation.recipient_email
 
-    mail(to: @recipient_email, subject: "{@sender.name} invites you to join Reselince Project")
+    mail(to: @recipient_email, subject: "#{@sender.name} invites you to join Resilience Project")
   end
 end
