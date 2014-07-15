@@ -19,8 +19,8 @@
 
       fieldset
         legend= t('simple_form.legends.user_profile.credentials')
-        = form.input :password
-        = form.input :password_confirmation
+        = form.input :password, required: true
+        = form.input :password_confirmation, required: true
 
       fieldset
         legend= t('simple_form.legends.user_profile.additional_data')
