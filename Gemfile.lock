@@ -228,7 +228,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   shoulda-matchers
   simple_form (~> 3.1.0.rc2)
-  simplecov
+  simplecov (~> 0.7.1)
   slim
   spring
   thin

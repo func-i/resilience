@@ -27,7 +27,7 @@ end
 group :test do
   gem 'database_cleaner', '1.0.1'
   gem 'shoulda-matchers', require: false
-  gem 'simplecov', require: false
+  gem 'simplecov', '~> 0.7.1', require: false
   gem 'capybara', '~> 2.4.1'
   gem 'email_spec'
 end
