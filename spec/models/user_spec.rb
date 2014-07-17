@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, :type => :model do
   context "factory" do
     it "have valid factory" do
-      expect(FactoryGirl.create :user).to be_valid
+      expect(FactoryGirl.create :regular_user).to be_valid
     end
   end
 
@@ -31,12 +31,30 @@ RSpec.describe User, :type => :model do
     end
   end
 
+  describe "callbacks" do
+    describe "before_save" do
+      describe "ensure_role_presence" do
+        context "user without roles" do
+          subject { FactoryGirl.build :user }
+
+          it "assign default role" do
+            expect{
+              subject.save
+            }.to change {
+              subject.roles.pluck(:name)
+            }.from([]).to([Role::DEFAULT_ROLE])
+          end
+        end
+      end
+    end
+  end
+
   describe ".photo" do
     let(:image) {
       File.new "#{Rails.root}/spec/fixtures/files/user_photo.jpg"
     }
 
-    subject { FactoryGirl.create :user}
+    subject { FactoryGirl.create :regular_user}
 
     before do
       subject.photo = image
@@ -56,6 +74,24 @@ RSpec.describe User, :type => :model do
     context "thumb" do
       it "have thumb with default size" do
         expect(subject.thumb.width).to eq 90
+      end
+    end
+  end
+
+  describe "rolify" do
+    describe "before_add" do
+      subject { FactoryGirl.create :user }
+
+      it "successfully assigns allowed role" do
+        Role::ALLOWED_ROLES.each do |role|
+          expect(subject.add_role(role)).to eq Role.find_by(name: role)
+        end
+      end
+
+      it "not allowed role is not assigned" do
+        expect{
+          subject.add_role('not_allowed_role')
+        }.to_not change(subject, :roles)
       end
     end
   end
