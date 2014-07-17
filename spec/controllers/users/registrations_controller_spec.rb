@@ -95,7 +95,7 @@ RSpec.describe Users::RegistrationsController, :type => :controller do
   end
 
   context "not allowed actions" do
-    let(:user) { FactoryGirl.create :user}
+    let(:user) { FactoryGirl.create :regular_user}
 
     before do
       sign_in user

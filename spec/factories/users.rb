@@ -7,6 +7,9 @@ FactoryGirl.define do
     name { Faker::Name.name}
     organization { Faker::Company.name }
     phone { Faker::PhoneNumber.phone_number }
+  end
+
+  factory :regular_user, parent: :user do
     roles { build_list :regular_role, 1 }
   end
 

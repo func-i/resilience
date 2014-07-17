@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe RegistrationInvitationsController, :type => :controller do
-  let(:current_user) { FactoryGirl.create :user }
+  let(:current_user) { FactoryGirl.create :regular_user }
 
   before do
     sign_in current_user

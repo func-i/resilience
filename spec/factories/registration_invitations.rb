@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :registration_invitation do
-    sender { FactoryGirl.create :user }
+    sender { FactoryGirl.create :regular_user }
     recipient_email { Faker::Internet.email }
     recipient nil
     state "new"
