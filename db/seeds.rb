@@ -1,21 +1,35 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+def purge
+  User.destroy_all
+  Role.destroy_all
+end
 
-User.destroy_all
+def seed message, &block
+  print message
+  yield
+  puts '....Done!'
+end
 
-User.create  name: 'Anton Yordnaov',
-  email: 'anton.yordanov@droxic.com',
-  password: 'password',
-  password_confirmation: 'password',
-  organization: 'Droxic'
+purge
 
-User.create name: 'Anton Yordnaov GMAIL',
-  email: 'anton.yordanov@gmail.com',
-  password: 'password',
-  password_confirmation: 'password',
-  organization: 'Droxic'
+seed "Create Roles" do
+  @admin_role = Role.create(name: 'administrator')
+  @regular_role = Role.create(name: 'regular')
+end
+
+seed "Create Users" do
+  administrator = User.create  name: 'Anton Yordnaov',
+    email: 'anton.yordanov@droxic.com',
+    password: 'password',
+    password_confirmation: 'password',
+    organization: 'Droxic'
+
+  administrator.add_role('administrator')
+
+  regular_user = User.create name: 'Anton Yordnaov GMAIL',
+    email: 'anton.yordanov@gmail.com',
+    password: 'password',
+    password_confirmation: 'password',
+    organization: 'Droxic'
+
+  regular_user.add_role('regular_user')
+end
