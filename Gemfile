@@ -15,6 +15,7 @@ gem 'foundation-rails', '~> 5.3.0.1'
 gem 'simple_form', '~> 3.1.0.rc2'
 gem 'dragonfly', "~>1.0.5"
 gem "rolify", '~> 3.4'
+gem 'pundit', '~> 0.2.3'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 
