@@ -16,13 +16,16 @@ gem 'simple_form', '~> 3.1.0.rc2'
 gem 'dragonfly', "~>1.0.5"
 gem "rolify", '~> 3.4'
 gem 'pundit', git: 'https://github.com/elabs/pundit.git'
+gem 'dumb_delegator', '~> 0.7.0'
+gem 'kaminari', '~> 0.16.1'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development do
   gem 'spring'
   gem 'thin'
-  gem "better_errors"
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do

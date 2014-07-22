@@ -40,6 +40,8 @@ GEM
     better_errors (1.1.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     builder (3.2.2)
     capybara (2.4.1)
       mime-types (>= 1.16)
@@ -57,6 +59,7 @@ GEM
     coffee-script-source (1.7.0)
     daemons (1.1.9)
     database_cleaner (1.0.1)
+    debug_inspector (0.0.2)
     devise (3.2.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -67,6 +70,7 @@ GEM
     dragonfly (1.0.5)
       multi_json (~> 1.0)
       rack
+    dumb_delegator (0.7.0)
     email_spec (1.6.0)
       launchy (~> 2.1)
       mail (~> 2.2)
@@ -95,6 +99,9 @@ GEM
       railties (>= 3.1.0)
       turbolinks
     json (1.8.1)
+    kaminari (0.16.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     launchy (2.4.2)
       addressable (~> 2.3)
     mail (2.5.4)
@@ -213,11 +220,13 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors
+  binding_of_caller
   capybara (~> 2.4.1)
   coffee-rails (~> 4.0.0)
   database_cleaner (= 1.0.1)
   devise (~> 3.2.4)
   dragonfly (~> 1.0.5)
+  dumb_delegator (~> 0.7.0)
   email_spec
   factory_girl_rails
   faker
@@ -225,6 +234,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
+  kaminari (~> 0.16.1)
   pg
   pundit!
   quiet_assets
