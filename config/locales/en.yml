@@ -1,7 +1,14 @@
 en:
   defaults:
     cancel: Cancel
+    actions: Actions
+    create_at: Create date
+    updated_at: Update date
   navigation:
+    invite: Invite
+    manage:
+      main: Manage
+      users: Users
     sign_in: Sign in
     sign_out: Sign out
     profile: Profile
@@ -15,6 +22,9 @@ en:
         phone: Phone
         website: Website
         photo: Photo
+        roles: Roles
+        create_at: Create date
+        updated_at: Update date
     models:
       user: User
   controllers:

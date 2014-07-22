@@ -1,0 +1,7 @@
+= page_title t("manage.views.users.edit.page_title")
+
+.row.edit-user
+  .panel.small-12.columns.small-centered role="content"
+    = simple_form_for [:manage, @user] do |form|
+      = render partial: 'form', locals: {form: form}
+      = form.button :submit

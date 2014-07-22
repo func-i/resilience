@@ -1,0 +1,16 @@
+- page_title t("manage.views.users.index.page_title")
+
+.row.actions
+  .small-12
+    = link_to new_registration_invitation_path,
+      class: 'button small right' do
+      i.icon.fi-plus
+      span= t('manage.views.users.index.invite')
+
+.row.users
+  .small-12
+    =render partial: 'index_table', locals: {users: @users}
+
+.row.users-pagination
+  .small-12
+    = paginate @users

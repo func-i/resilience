@@ -1,0 +1,23 @@
+table.basic.users
+  thead
+    tr
+      th= User.human_attribute_name(:name)
+      th= User.human_attribute_name(:email)
+      th= User.human_attribute_name(:organization)
+      th= User.human_attribute_name(:roles)
+      th= User.human_attribute_name(:created_at)
+      th= t('manage.views.defaults.actions')
+  tbody
+    - users.each do |user|
+      tr
+        td.user-name= user.name
+        td.user-email= user.email
+        td.user-roles= user.roles
+        td.user-roles= user.organization
+        td.user-created-at= user.created_at
+        td.user-actions
+          = show_action user
+          = edit_action user
+          = destroy_action user
+
+
