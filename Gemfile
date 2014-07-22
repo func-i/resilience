@@ -18,6 +18,7 @@ gem "rolify", '~> 3.4'
 gem 'pundit', git: 'https://github.com/elabs/pundit.git'
 gem 'dumb_delegator', '~> 0.7.0'
 gem 'kaminari', '~> 0.16.1'
+gem 'searchlight', '~> 3.0.0'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 
@@ -31,7 +32,7 @@ end
 group :test do
   gem 'database_cleaner', '1.0.1'
   gem 'shoulda-matchers', require: false
-  gem 'simplecov', '~> 0.7.1', require: false
+  gem 'simplecov', '~> 0.9.0', require: false
   gem 'capybara', '~> 2.4.1'
   gem 'email_spec'
 end

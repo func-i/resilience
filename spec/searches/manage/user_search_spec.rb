@@ -32,10 +32,10 @@ describe Manage::UserSearch do
       end
     end
 
-    describe "#search_organization_contatins" do
+    describe "#search_organization_contains" do
       it "results contains users matched by organization" do
         expect(
-          subject.new(organization_contatins: first_user_organization[0..4]).results.to_a
+          subject.new(organization_contains: first_user_organization[0..4]).results.to_a
         ).to eq User.where(organization: first_user_organization).to_a
       end
     end
