@@ -2,8 +2,12 @@ class Manage::UsersController < Manage::BaseController
   respond_to :html
 
   def index
-    users = User.page(params[:page] || 0).per(1)
+    @search = Manage::UserSearch.new(params[:search])
+    @user_search_form = Manage::UsersSearchForm.new @search.get_searches,
+      params[:search]
+    users = @search.results.page(current_page)
     @users = Manage::UserCollectionDecorator.new(users, view_context)
+
     respond_with [:manage, @users]
   end
 

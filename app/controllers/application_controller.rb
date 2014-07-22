@@ -15,4 +15,13 @@ class ApplicationController < ActionController::Base
 
     redirect_to(request.referrer || root_path)
   end
+
+  def current_page
+    params[:page] || 0
+  end
+
+  #Table rows per page when using pagination
+  def per_page
+    params[:per_page] || Kaminari.config.default_per_page
+  end
 end

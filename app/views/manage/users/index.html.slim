@@ -7,6 +7,8 @@
       i.icon.fi-plus
       span= t('manage.views.users.index.invite')
 
+= render @user_search_form
+
 .row.users
   .small-12
     =render partial: 'index_table', locals: {users: @users}
