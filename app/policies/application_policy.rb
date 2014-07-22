@@ -1,18 +1,12 @@
-class ApplicationPolicy
-  attr_reader :user, :record
-
-  def initialize(user, record)
-    @user = user
-    @record = record
-  end
-
-  private
-
+class ApplicationPolicy < Struct.new(:user, :record)
   attr_reader :user_roles
 
   def user_roles
-    @user_roles = user.roles.pluck(:name)
+    raise Pundit::NotAuthorizedError, "must be logged in" unless user
+    @user_roles ||= user.roles.pluck(:name)
   end
+
+  private
 
   def permited_for roles
     roles = roles.join(' ')

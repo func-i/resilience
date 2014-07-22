@@ -1,7 +1,7 @@
 class ManagePolicy < ApplicationPolicy
+  MANAGE_ROLES = ['administrator']
 
-  def manage?
-    permited_for ['administrator']
+  def can_manage?
+    user.has_any_role? *MANAGE_ROLES
   end
-
 end
