@@ -16,6 +16,22 @@ RSpec.describe Manage::UsersController, :type => :controller do
         expect(response).to render_template 'index'
         expect(assigns(:users).class).to eq User::ActiveRecord_Relation
       end
+
+      context "sorting" do
+        let(:sort_by) {{direction: 'asc',
+            sort: 'users.name'
+          }
+        }
+
+        before do
+          2.times { FactoryGirl.create :user}
+        end
+
+        it 'sorts data by sorting criterion' do
+          get :index, sort_by
+          expect(assigns(:users).pluck(:name)).to eq User.order(:name).pluck(:name)
+        end
+      end
     end
 
     describe "show - GET /manage/users/:id" do
@@ -48,17 +64,20 @@ RSpec.describe Manage::UsersController, :type => :controller do
       }
 
       it "redirect to show action" do
-        expect {
-          patch :update, id: user.id, user: user_params
-          expect(assigns(:user).roles.count).to eq(2)
-          expect(response).to redirect_to manage_user_path(user)
-        }
+        patch :update, id: user.id, user: user_params
+
+        expect(assigns(:user)).to eq user
+        expect(assigns(:user).roles.count).to eq(2)
+        expect(flash[:notice]).to eq I18n::t('manage.controllers.users.update.notice')
+        expect(response).to redirect_to manage_user_path(user)
       end
     end
 
     describe "destroy - DELETE /manage/users/:id" do
       it "redirect to show action" do
         delete :destroy, id: user.id
+
+        expect(flash[:notice]).to eq I18n::t('manage.controllers.users.destroy.notice')
         expect(response).to redirect_to manage_users_path
       end
     end
