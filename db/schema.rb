@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140717065810) do
+ActiveRecord::Schema.define(version: 20140723151303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attachments", force: true do |t|
+    t.string   "title"
+    t.string   "file_name"
+    t.string   "file_uid"
+    t.integer  "attachable_id"
+    t.string   "attachable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "attachments", ["attachable_id", "attachable_type"], name: "index_attachments_on_attachable_id_and_attachable_type", using: :btree
+  add_index "attachments", ["file_uid"], name: "index_attachments_on_file_uid", using: :btree
 
   create_table "registration_invitations", force: true do |t|
     t.integer  "sender_id"
