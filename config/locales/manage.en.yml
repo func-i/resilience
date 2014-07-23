@@ -4,6 +4,8 @@ en:
       users:
         update:
           notice: User was updated successfully
+        destroy:
+          notice: User was successfully deleted
     views:
       actions:
         create: New
