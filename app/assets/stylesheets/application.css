@@ -11,6 +11,8 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require_tree ./manage/
  *= require_self
  *= require foundation_and_overrides
  */
+

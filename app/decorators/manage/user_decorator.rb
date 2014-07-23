@@ -9,6 +9,10 @@ module Manage
       super user, view_context
     end
 
+    def created_at
+      super.to_formatted_s(:long)
+    end
+
     def photo
       if super
         h.image_tag user.thumb(::UserPhoto::SIZE[:small]).url

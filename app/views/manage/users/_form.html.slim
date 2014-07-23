@@ -1,1 +1,11 @@
+= form.input :name, input_html: {readonly: true}
+= form.input :title, input_html: {readonly: true}
+= form.input :email, input_html: {readonly: true}
+= form.input :organization, input_html: {readonly: true}
 = form.association :roles, as: :check_boxes
+
+-if user.photo_stored?
+  = image_tag user.photo.thumb(UserPhoto::SIZE[:small]).url,
+    class: 'user_profile_photo'
+  = form.input :remove_photo, as: :boolean,
+    label: t('simple_form.labels.user_profile.remove_photo')

@@ -1,31 +1,30 @@
 .row
-  = simple_form_for search_form,
-    as: :search,
-    url: manage_users_path,
-    html: {method: :get, class: 'search-form'}  do |form|
-
-    .small-12.medium-10.colums
-      = form.input :name_contains,
-        label: false,
-        placeholder: 'Name contains',
-        wrapper_html: {class: 'medium-3 colums left'}
-
-      = form.input :email_contains,
-        label: false,
-        placeholder: 'Email contains',
-        wrapper_html: {class: 'medium-3 colums left'}
-
-      = form.input :organization_contains,
-        label: false,
-        placeholder: 'Organization contains',
-        wrapper_html: {class: 'medium-3 colums left'}
-
-      = form.input :has_role,
-        collection: Role.humanized,
-        label: false,
-        include_blank: t('simple_form.prompts.has_role'),
-        wrapper_html: {class: 'medium-3 colums left'}
+  .small-12
+    = simple_form_for search_form,
+      as: :search,
+      url: manage_users_path,
+      html: {method: :get, class: 'search-form'}  do |form|
 
 
-    .small-12.mediun-2.colums
-      = form.submit t('simple_form.buttons.search'), class: 'fi-page-search button'
+        = form.input :name_contains,
+          label: false,
+          placeholder: 'Name contains',
+          wrapper_html: {class: 'medium-3 colums left'}
+
+        = form.input :email_contains,
+          label: false,
+          placeholder: 'Email contains',
+          wrapper_html: {class: 'medium-3 colums left'}
+
+        = form.input :organization_contains,
+          label: false,
+          placeholder: 'Organization contains',
+          wrapper_html: {class: 'medium-3 colums left'}
+
+        = form.input :has_role,
+          collection: Role.humanized,
+          label: false,
+          include_blank: t('simple_form.prompts.has_role'),
+          wrapper_html: {class: 'medium-3 colums left'}
+
+        = form.submit t('simple_form.buttons.search'), class: 'fi-page-search button right'

@@ -11,7 +11,7 @@
         = @user.title
       li
         span.label = User.human_attribute_name(:email)
-        = @user.title
+        span.preview = @user.title
       li
         span.label = User.human_attribute_name(:organization)
         = @user.title
@@ -21,3 +21,6 @@
       li
         span.label = User.human_attribute_name(:photo)
         = @user.photo
+
+      hr
+      = link_to "Users list", manage_users_path, class: 'button'

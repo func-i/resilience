@@ -12,10 +12,10 @@ table.basic.users
       tr
         td.user-name= user.name
         td.user-email= user.email
-        td.user-roles= user.roles
         td.user-roles= user.organization
+        td.user-roles= user.roles
         td.user-created-at= user.created_at
-        td.user-actions
+        td.actions
           = show_action user
           = edit_action user
           = destroy_action user
