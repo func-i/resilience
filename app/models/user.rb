@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
 
   has_one  :registration_invitation, foreign_key: :recipient_id
   has_many :registration_invitations, foreign_key: :sender_id
+  has_many :building_blocks, foreign_key: :owner_id
 
   private
 

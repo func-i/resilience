@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140723151303) do
+ActiveRecord::Schema.define(version: 20140723160803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 20140723151303) do
 
   add_index "attachments", ["attachable_id", "attachable_type"], name: "index_attachments_on_attachable_id_and_attachable_type", using: :btree
   add_index "attachments", ["file_uid"], name: "index_attachments_on_file_uid", using: :btree
+
+  create_table "building_blocks", force: true do |t|
+    t.string   "title"
+    t.integer  "owner_id"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "building_blocks", ["owner_id"], name: "index_building_blocks_on_owner_id", using: :btree
 
   create_table "registration_invitations", force: true do |t|
     t.integer  "sender_id"
