@@ -32,12 +32,13 @@ ActiveRecord::Schema.define(version: 20140723160803) do
   create_table "building_blocks", force: true do |t|
     t.string   "title"
     t.integer  "owner_id"
-    t.string   "state"
+    t.string   "workflow_state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "building_blocks", ["owner_id"], name: "index_building_blocks_on_owner_id", using: :btree
+  add_index "building_blocks", ["workflow_state"], name: "index_building_blocks_on_workflow_state", using: :btree
 
   create_table "registration_invitations", force: true do |t|
     t.integer  "sender_id"

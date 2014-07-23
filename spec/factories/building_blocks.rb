@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :building_block do
     title "MyString"
-    owner
+    owner factory: :user
   end
 end

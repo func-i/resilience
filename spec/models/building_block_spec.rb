@@ -16,4 +16,12 @@ RSpec.describe BuildingBlock, :type => :model do
       is_expected.to validate_presence_of :title
     end
   end
+
+  context "workflow states" do
+    subject { FactoryGirl.create :building_block}
+
+    it "initial state is draft" do
+      expect(subject.workflow_state).to eq "draft"
+    end
+  end
 end
