@@ -19,6 +19,7 @@ RSpec.describe Manage::BaseController, :type => :controller do
         it "return true" do
           expect_any_instance_of(Manage::BaseController).to receive(:authorize_user!).and_return(true)
           get :index
+          expect(response.body).to eq "Hello World"
         end
       end
 
@@ -28,6 +29,7 @@ RSpec.describe Manage::BaseController, :type => :controller do
         it "return Pundit::NotAuthorizedError" do
           expect_any_instance_of(Manage::BaseController).to receive(:authorize_user!).and_raise(Pundit::NotAuthorizedError)
           get :index
+          expect(response).to redirect_to root_path
         end
       end
     end

@@ -14,4 +14,19 @@ describe ApplicationPolicy do
       expect(subject.record).to eq record
     end
   end
+
+  describe "#user_roles" do
+    context "loged in user" do
+      it "returns array with loged in user roles names" do
+        expect(subject.user_roles).to eq current_user.roles.pluck(:name)
+      end
+    end
+
+    context "not loged in user" do
+      let(:current_user) { nil }
+      it "raise a error" do
+        expect{ subject.user_roles }.to raise_error  Pundit::NotAuthorizedError
+      end
+    end
+  end
 end
