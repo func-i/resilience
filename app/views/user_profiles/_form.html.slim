@@ -25,7 +25,7 @@
         = form.input :website
 
         -if user.photo_stored?
-          = image_tag user.photo.thumb(UserPhoto::SIZE[:small]).url,
+          = image_tag user.thumb(:small).url,
             class: 'user_profile_photo'
           = form.input :remove_photo, as: :boolean,
             label: t('simple_form.labels.user_profile.remove_photo')

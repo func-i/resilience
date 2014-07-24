@@ -12,7 +12,7 @@ ul
 ul.right
   - if user_signed_in?
     - if current_user.photo_stored?
-      li= image_tag current_user.photo.thumb(UserPhoto::SIZE[:avatar]).url,
+      li= image_tag current_user.thumb(:avatar).url,
         class: 'user_avatar'
     li.has-dropdown
       a href="#" #{current_user.email}

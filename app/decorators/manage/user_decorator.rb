@@ -15,7 +15,7 @@ module Manage
 
     def photo
       if super
-        h.image_tag user.thumb(::UserPhoto::SIZE[:small]).url
+        h.image_tag user.thumb(:small).url
       else
         # TODO : show default avatar
         nil
