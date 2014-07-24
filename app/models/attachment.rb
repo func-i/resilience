@@ -3,7 +3,6 @@ class Attachment < ActiveRecord::Base
 
   dragonfly_accessor :file
 
-  validates :file_name, :file_uid,
-    presence: true
+  validates :file, presence: true
 
 end

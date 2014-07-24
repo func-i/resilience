@@ -9,11 +9,7 @@ RSpec.describe Attachment, :type => :model do
 
   context "validations" do
     it " validate presence of file_name" do
-      is_expected.to validate_presence_of :file_name
-    end
-
-    it " validate presence of file_uid" do
-      is_expected.to validate_presence_of :file_uid
+      is_expected.to validate_presence_of :file
     end
   end
 

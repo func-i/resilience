@@ -19,6 +19,10 @@ RSpec.describe User, :type => :model do
     it "have one registration invitation as recipient" do
       is_expected.to have_one(:registration_invitation)
     end
+
+    it "have many building blocks" do
+      is_expected.to have_many(:building_blocks)
+    end
   end
 
   context "validations" do

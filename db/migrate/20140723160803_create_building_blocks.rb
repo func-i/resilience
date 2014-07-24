@@ -4,6 +4,7 @@ class CreateBuildingBlocks < ActiveRecord::Migration
       t.string :title
       t.references :owner, index: true
       t.string :workflow_state
+      t.references :parent, index: true
 
       t.timestamps
     end
