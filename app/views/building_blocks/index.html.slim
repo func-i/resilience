@@ -1,0 +1,12 @@
+- page_title t("views.building_blocks.index.page_title")
+.row.actions
+  .small-12
+    = link_to new_building_block_path,
+      class: 'button small right' do
+      i.icon.fi-plus
+      span= t('views.defaults.actions.create')
+
+.row.users
+  .small-12
+    = render partial: 'index_table',
+      locals: {building_blocks: @building_blocks}

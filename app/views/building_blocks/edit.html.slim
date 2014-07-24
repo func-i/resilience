@@ -1,0 +1,10 @@
+- page_title t("views.building_blocks.edit.page_title")
+
+.row.new-building-block
+  .panel.small-12.columns.small-centered role="content"
+    span.label =@building_block.workflow_state
+    = simple_form_for @building_block,  html: {multipart: true} do |form|
+      = render partial: 'form',
+        locals: {form: form, building_block: @building_block}
+      = form.button :submit
+      = link_to "Cancel", building_blocks_path

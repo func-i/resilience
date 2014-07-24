@@ -7,11 +7,12 @@ en:
         destroy:
           notice: User was successfully deleted
     views:
-      actions:
-        create: New
-        destroy: Delete
-        edit: Edit
-        show: Show
+      defaults:
+        actions:
+          create: New
+          destroy: Delete
+          edit: Edit
+          show: Show
       users:
         index:
           page_title: Users

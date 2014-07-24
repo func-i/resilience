@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   # resources :home, only: [:index]
 
+  resources :building_blocks
   resources :user_profiles, only: [:edit, :update]
   resources :registration_invitations, only: [:new, :create]
 
