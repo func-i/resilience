@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   include UserPhoto
+  # include Elasticsearch::Model
+  # include Elasticsearch::Model::Callbacks
+
   rolify before_add: :permit_role
 
   before_save :ensure_role_presence
