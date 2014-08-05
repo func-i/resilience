@@ -15,6 +15,10 @@
 /log/*.log
 /tmp
 
+# Ignore system folder
+/public/system/
+/coverage/*
+
 
 # scm revert files
 **.orig

@@ -1,8 +1,16 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
+require 'simplecov'
+SimpleCov.start 'rails'
 require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+require 'database_cleaner'
+require 'shoulda/matchers'
+require 'faker'
+require 'capybara/rails'
+require 'email_spec'
+
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -46,11 +54,18 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with(:truncation)
   end
 
-  config.around(:each) do |example|
-    DatabaseCleaner.cleaning do
-      example.run
-    end
-  end
+  # config.around(:each) do |example|
+  #   DatabaseCleaner.cleaning do
+  #     example.run
+  #   end
+  # end
 
-
+  config.include Rails.application.routes.url_helpers, type: :feature
+  config.include Rails.application.routes.mounted_helpers, type: :feature
+  config.include ActionView::Helpers::TranslationHelper, type: :feature
+  config.include Devise::TestHelpers, :type => :controller
+  config.include Features::SessionHelpers
+  config.include(EmailSpec::Helpers)
+  config.include(EmailSpec::Matchers)
+  config.include ActiveSupport::Testing::TimeHelpers
 end

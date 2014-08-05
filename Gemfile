@@ -7,26 +7,37 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'devise', '~> 3.2.4'
+gem 'slim'
+gem 'foundation-rails', '~> 5.3.0.1'
+gem 'simple_form', '~> 3.1.0.rc2'
+gem 'dragonfly', "~>1.0.5"
+gem "rolify", '~> 3.4'
+gem 'pundit', '~> 0.2.3'
 
+gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development do
   gem 'spring'
   gem 'thin'
+  gem "better_errors"
 end
 
 group :test do
   gem 'database_cleaner', '1.0.1'
   gem 'shoulda-matchers', require: false
-  gem 'simplecov', require: false
-  gem 'capybara'
+  gem 'simplecov', '~> 0.7.1', require: false
+  gem 'capybara', '~> 2.4.1'
+  gem 'email_spec'
 end
 
 gem 'rails_12factor', group: :production
 
 group :test, :development do
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'quiet_assets'
+  gem 'rspec-rails', '~> 3.0.1'
   gem 'factory_girl_rails'
   gem 'faker', require: false
 end
