@@ -6,7 +6,7 @@ table.basic.users
       th= sort_by_link 'users', 'organization', User.human_attribute_name(:organization)
       th= sort_by_link 'roles', 'name', User.human_attribute_name(:roles)
       th= sort_by_link 'users', 'created_at', User.human_attribute_name(:created_at)
-      th= t('manage.views.defaults.actions')
+      th= t('defaults.actions')
   tbody
     - users.each do |user|
       tr

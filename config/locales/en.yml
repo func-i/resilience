@@ -5,6 +5,7 @@ en:
     create_at: Create date
     updated_at: Update date
   navigation:
+    building_blocks: Building Blocks
     invite: Invite
     manage:
       main: Manage
@@ -14,6 +15,15 @@ en:
     profile: Profile
   activerecord:
     attributes:
+      attachment:
+        title: Title
+        file_name: File name
+        _destroy: Remove attachment
+      building_block:
+        title: Title
+        owner: Owner
+        workflow_state: State
+        attachments: Attachemnts
       user:
         name: Name
         email: Email
@@ -26,6 +36,8 @@ en:
         create_at: Create date
         updated_at: Update date
     models:
+      attachment: Attachemnt
+      building_block: Building Block
       user: User
   controllers:
     user_profiles:
@@ -39,6 +51,14 @@ en:
         not_found: Invitation was not found
         expired: Invitation link is expired
         accepted: Invitation is already accepted
+    building_blocks:
+      create:
+        notice: "Building Block was successfully created"
+      update:
+        notice: "Building Block was successfully updated"
+      destroy:
+        notice: "Building Block was successfully deleted"
+
 
   validators:
     email:
@@ -47,6 +67,12 @@ en:
       email:
         persist: "User with that email already exists"
   views:
+    defaults:
+      actions:
+        create: Create
+        destroy: Delete
+        edit: Edit
+        show: Show
     user_profiles:
       edit:
         page_title: Update Your Profile
@@ -60,3 +86,12 @@ en:
       registrations:
         new:
           page_title: Sign up
+    building_blocks:
+      index:
+        page_title: Building Blocks
+      new:
+        page_title: New Building Block
+      edit:
+        page_title: Edit Building Block
+
+

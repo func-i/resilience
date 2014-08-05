@@ -1,0 +1,21 @@
+table.basic.building-blocks
+  thead
+    tr
+      th= BuildingBlock.human_attribute_name(:title)
+      th= BuildingBlock.human_attribute_name(:owner)
+      th= BuildingBlock.human_attribute_name(:workflow_state)
+      th= BuildingBlock.human_attribute_name(:created_at)
+      th= t('defaults.actions')
+  tbody
+    - building_blocks.each do |building_block|
+      tr
+        td.building-block-title= building_block.title
+        td.building-block-name= building_block.owner.name
+        td.building-block-state= building_block.workflow_state
+        td.building-block-created-at= building_block.created_at
+        td.actions
+          = show_action building_block
+          = edit_action building_block
+          = destroy_action building_block
+
+

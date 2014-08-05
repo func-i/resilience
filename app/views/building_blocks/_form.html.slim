@@ -1,0 +1,11 @@
+= form.input :title
+= form.association :owner, input_html: {disabled: true}
+
+= form.simple_fields_for :attachments do |file_fields|
+  -if file_fields.object.persisted?
+    span.label= file_fields.object.file_name
+    = file_fields.input :_destroy, as: :boolean
+
+
+  = file_fields.input :file, as: :file
+  / = file_fields.input :retained_file, as: :hidden

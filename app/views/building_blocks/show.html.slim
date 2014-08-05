@@ -1,0 +1,24 @@
+- page_title t("views.building_blocks.index.page_title")
+
+.row.show-building-block
+  .panel.small-12.columns.small-centered role="content"
+    ul
+      li
+        span.label = BuildingBlock.human_attribute_name(:title)
+        = @building_block.title
+      li
+        span.label = BuildingBlock.human_attribute_name(:owner)
+        = @building_block.owner.name
+      li
+        span.label = BuildingBlock.human_attribute_name(:workflow_state)
+        span.preview = @building_block.workflow_state
+      -if @building_block.attachments.present?
+        li
+          span.label = BuildingBlock.human_attribute_name(:attachments)
+          ul
+            - @building_block.attachments.each do |attachment|
+              li = link_to attachment.file_name, attachment.file.url
+    hr
+    = link_to "Building Blocks list",
+      building_blocks_path,
+      class: 'button'

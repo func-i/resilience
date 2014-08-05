@@ -19,6 +19,7 @@ gem 'pundit', git: 'https://github.com/elabs/pundit.git'
 gem 'dumb_delegator', '~> 0.7.0'
 gem 'kaminari', '~> 0.16.1'
 gem 'searchlight', '~> 3.0.0'
+gem 'workflow', '~> 1.0.0'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 

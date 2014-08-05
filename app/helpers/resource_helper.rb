@@ -1,22 +1,22 @@
-module Manage::ResourceHelper
+module ResourceHelper
 
   def edit_action resource
     icon = content_tag(:i, nil, class: 'fi-page-edit').html_safe
 
     link_to(icon,
-      polymorphic_path([:edit, :manage, *resource]),
+      polymorphic_path([:edit, *namespace, *resource]),
       class: 'edit',
-      title: t('manage.views.actions.edit')).html_safe
+      title: t('views.defaults.actions.edit')).html_safe
   end
 
   def destroy_action resource
     icon = content_tag(:i, nil, class: 'fi-page-delete').html_safe
 
     link_to(icon,
-      polymorphic_path([:manage, *resource]),
+      polymorphic_path([*namespace, *resource]),
       data: {confirm: 'Are you sure ?'},
       class: 'delete',
-      title: t('manage.views.actions.destroy'),
+      title: t('views.defaults.actions.destroy'),
       method: :delete).html_safe
   end
 
@@ -24,9 +24,17 @@ module Manage::ResourceHelper
     icon = content_tag(:i, nil, class: 'fi-page').html_safe
 
     link_to(icon,
-      polymorphic_path([:manage, *resource]),
+      polymorphic_path([*namespace, *resource]),
       class: 'show',
-      title: t('manage.views.actions.show')).html_safe
+      title: t('views.defaults.actions.show')).html_safe
+  end
+
+  private
+
+  def namespace
+    controller_namespace = controller_path.split('/')
+    controller_namespace.pop
+    controller_namespace
   end
 
 end
