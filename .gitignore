@@ -17,6 +17,7 @@
 
 # Ignore system folder
 /public/system/
+/coverage/*
 
 
 # scm revert files

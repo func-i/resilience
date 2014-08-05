@@ -1,3 +1,6 @@
+- if user_signed_in?
+  ul
+    li= link_to "Invite a friend", new_registration_invitation_path
 ul.right
   - if user_signed_in?
     - if current_user.photo_stored?

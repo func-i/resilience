@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "User Profile" do
-  given(:user) { FactoryGirl.create :user }
+  given(:user) { FactoryGirl.create :regular_user }
 
   background do
     signin(user.email, user.password)

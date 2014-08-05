@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "User Sign in" do
   background do
-    @user = FactoryGirl.create :user
+    @user = FactoryGirl.create :regular_user
   end
 
   scenario "Registerd users can sigin in" do

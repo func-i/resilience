@@ -1,0 +1,33 @@
+.row
+  .panel.large-10.small-6.columns.small-centered.large-centered role="content"
+    h3= t('views.users.registrations.new.page_title')
+    = simple_form_for resource,
+      url: user_registration_path,
+      html: {multipart: true , class: 'user_profile'} do |form|
+
+      = form.error_notification
+
+      = hidden_field_tag :invitation_token, params[:invitation_token]
+
+      fieldset
+        legend= t('simple_form.legends.user_profile.basic_data')
+        = form.input :name
+        = form.input :email,
+          required: true,
+          input_html: {value: @invitation.recipient_email}
+        = form.input :organization
+
+      fieldset
+        legend= t('simple_form.legends.user_profile.credentials')
+        = form.input :password, required: true
+        = form.input :password_confirmation, required: true
+
+      fieldset
+        legend= t('simple_form.legends.user_profile.additional_data')
+        = form.input :phone
+        = form.input :website
+
+      .row.collapse
+        = form.button :submit,
+          t('simple_form.buttons.users.registrations.new.submit'),
+          class: 'right'

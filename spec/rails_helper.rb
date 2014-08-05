@@ -1,14 +1,16 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
+require 'simplecov'
+SimpleCov.start 'rails'
 require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'database_cleaner'
-require 'simplecov'
 require 'shoulda/matchers'
 require 'faker'
 require 'capybara/rails'
 require 'email_spec'
+
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -65,4 +67,5 @@ RSpec.configure do |config|
   config.include Features::SessionHelpers
   config.include(EmailSpec::Helpers)
   config.include(EmailSpec::Matchers)
+  config.include ActiveSupport::Testing::TimeHelpers
 end

@@ -1,0 +1,8 @@
+= simple_form_for @registration_invitation do |form|
+  = form.error_notification
+
+  = form.input :recipient_email
+  .row.collapse
+    = form.button :submit,
+      t('simple_form.buttons.registration_invitations.new.submit'),
+      class: 'right'

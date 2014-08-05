@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature 'User Sign out', :devise do
   background do
-    @user = FactoryGirl.create :user
+    @user = FactoryGirl.create :regular_user
   end
 
 

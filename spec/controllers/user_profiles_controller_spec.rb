@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe UserProfilesController, :type => :controller do
 
-  subject { FactoryGirl.create :user }
+  subject { FactoryGirl.create :regular_user }
 
   before do
     sign_in(subject)
