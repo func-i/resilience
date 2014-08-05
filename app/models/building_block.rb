@@ -1,6 +1,10 @@
 class BuildingBlock < ActiveRecord::Base
   include BuildingBlockStates
 
+  searchkick settings: {number_of_shards: 1},
+    word_start: [:title]
+
+
   belongs_to :owner,
     class_name: User,
     inverse_of: :building_blocks
@@ -19,8 +23,16 @@ class BuildingBlock < ActiveRecord::Base
     else
       new_building_block.parent_id = id
     end
-    new_building_block.owner = new_owner
 
+    new_building_block.owner = new_owner
     new_building_block
+  end
+
+  def search_data
+    {
+      owner_name: owner.name,
+      owner_email: owner.email,
+      organization: owner.organization
+    }
   end
 end

@@ -20,6 +20,9 @@ gem 'dumb_delegator', '~> 0.7.0'
 gem 'kaminari', '~> 0.16.1'
 gem 'searchlight', '~> 3.0.0'
 gem 'workflow', '~> 1.0.0'
+# gem 'elasticsearch-model', '~> 0.1.4'
+# gem 'elasticsearch-rails', '~> 0.1.4'
+gem 'searchkick', '~> 0.8.0'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 
