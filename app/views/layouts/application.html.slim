@@ -16,4 +16,5 @@ html
       == render 'layouts/navigation'
     main[role="main"]
       == render 'layouts/messages'
+      == yield :page_title
       == yield

@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   def permit_role role
     unless Role::ALLOWED_ROLES.include?(role.name)
       errors.add(:roles, "Role #{role.name} is not allowed")
-      role_ids = self.role_ids.delete(role.id)
+      self.role_ids.delete(role.id)
     end
   end
 end

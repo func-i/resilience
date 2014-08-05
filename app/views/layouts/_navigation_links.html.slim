@@ -1,6 +1,13 @@
 - if user_signed_in?
   ul
-    li= link_to "Invite a friend", new_registration_invitation_path
+    li= link_to t('navigation.invite'),
+      new_registration_invitation_path
+    - if policy(:manage).can_manage?
+      li.has-dropdown
+        a href="#"= t('navigation.manage.main')
+        ul.dropdown
+          li= link_to t('navigation.manage.users'),
+            manage_users_path
 ul.right
   - if user_signed_in?
     - if current_user.photo_stored?

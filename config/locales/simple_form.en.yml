@@ -11,6 +11,7 @@ en:
     error_notification:
       default_message: "Please review the problems below:"
     buttons:
+      search: 'Search'
       passwords:
         change: Change my password
       user_profiles:
@@ -34,6 +35,8 @@ en:
         basic_data: Basic Data
         credentials: Credentials
         additional_data: Additional Data
+    prompts:
+      has_role: Select role
     # Examples
     # labels:
     #   defaults:
