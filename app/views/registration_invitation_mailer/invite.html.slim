@@ -1,0 +1,8 @@
+doctype html
+html
+  head
+    title Resilience Project
+  body
+    h3 #{@sender.name} invites you to join resilince project
+
+    p Click "#{link_to 'here', new_user_registration_url(invitation_token: @registration_invitation.invitation_token)}" to accept invitation
