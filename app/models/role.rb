@@ -6,4 +6,10 @@ class Role < ActiveRecord::Base
   belongs_to :resource, polymorphic: true
 
   scopify
+
+  def self.humanized
+    all.pluck(:name, :id).map do |role|
+      [role.first.humanize, role.last]
+    end
+  end
 end

@@ -1,0 +1,26 @@
+= page_title t("manage.views.users.show.page_title")
+
+.row.show-user
+  .panel.small-12.columns.small-centered role="content"
+    ul
+      li
+        span.label = User.human_attribute_name(:name)
+        = @user.name
+      li
+        span.label = User.human_attribute_name(:title)
+        = @user.title
+      li
+        span.label = User.human_attribute_name(:email)
+        span.preview = @user.title
+      li
+        span.label = User.human_attribute_name(:organization)
+        = @user.title
+      li
+        span.label = User.human_attribute_name(:roles)
+        = @user.roles
+      li
+        span.label = User.human_attribute_name(:photo)
+        = @user.photo
+
+      hr
+      = link_to "Users list", manage_users_path, class: 'button'

@@ -1,0 +1,23 @@
+table.basic.users
+  thead
+    tr
+      th= sort_by_link 'users', 'name', User.human_attribute_name(:name)
+      th= sort_by_link 'users', 'email', User.human_attribute_name(:email)
+      th= sort_by_link 'users', 'organization', User.human_attribute_name(:organization)
+      th= sort_by_link 'roles', 'name', User.human_attribute_name(:roles)
+      th= sort_by_link 'users', 'created_at', User.human_attribute_name(:created_at)
+      th= t('defaults.actions')
+  tbody
+    - users.each do |user|
+      tr
+        td.user-name= user.name
+        td.user-email= user.email
+        td.user-roles= user.organization
+        td.user-roles= user.roles
+        td.user-created-at= user.created_at
+        td.actions
+          = show_action user
+          = edit_action user
+          = destroy_action user
+
+

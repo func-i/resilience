@@ -1,10 +1,18 @@
-- if user_signed_in?
-  ul
-    li= link_to "Invite a friend", new_registration_invitation_path
+ul
+  li= link_to t('navigation.building_blocks'), building_blocks_path
+  - if user_signed_in?
+    li= link_to t('navigation.invite'),
+      new_registration_invitation_path
+    - if policy(:manage).can_manage?
+      li.has-dropdown
+        a href="#"= t('navigation.manage.main')
+        ul.dropdown
+          li= link_to t('navigation.manage.users'),
+            manage_users_path
 ul.right
   - if user_signed_in?
     - if current_user.photo_stored?
-      li = image_tag current_user.photo.thumb(UserPhoto::SIZE[:avatar]).url,
+      li= image_tag current_user.thumb(:avatar).url,
         class: 'user_avatar'
     li.has-dropdown
       a href="#" #{current_user.email}

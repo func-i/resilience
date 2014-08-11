@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   include UserPhoto
+  # include Elasticsearch::Model
+  # include Elasticsearch::Model::Callbacks
+
   rolify before_add: :permit_role
 
   before_save :ensure_role_presence
@@ -16,6 +19,7 @@ class User < ActiveRecord::Base
 
   has_one  :registration_invitation, foreign_key: :recipient_id
   has_many :registration_invitations, foreign_key: :sender_id
+  has_many :building_blocks, foreign_key: :owner_id
 
   private
 
@@ -26,7 +30,7 @@ class User < ActiveRecord::Base
   def permit_role role
     unless Role::ALLOWED_ROLES.include?(role.name)
       errors.add(:roles, "Role #{role.name} is not allowed")
-      role_ids = self.role_ids.delete(role.id)
+      self.role_ids.delete(role.id)
     end
   end
 end

@@ -1,0 +1,25 @@
+en:
+  manage:
+    controllers:
+      users:
+        update:
+          notice: User was updated successfully
+        destroy:
+          notice: User was successfully deleted
+    views:
+      defaults:
+        actions:
+          create: New
+          destroy: Delete
+          edit: Edit
+          show: Show
+      users:
+        index:
+          page_title: Users
+          invite: Invite
+        edit:
+          page_title: Edit User
+        show:
+          page_title: User Preview
+
+
